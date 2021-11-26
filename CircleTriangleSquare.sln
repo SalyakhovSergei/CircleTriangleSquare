@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CircleTriangleSquare", "CircleTriangleSquare\CircleTriangleSquare.csproj", "{3B8DFDB2-B680-4647-8C1B-33627B536765}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CircleTriangleSquare.Tests", "CircleTriangleSquare.Tests\CircleTriangleSquare.Tests.csproj", "{F8C60AC8-7F6A-434F-B403-999266F30FA7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B8DFDB2-B680-4647-8C1B-33627B536765}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B8DFDB2-B680-4647-8C1B-33627B536765}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B8DFDB2-B680-4647-8C1B-33627B536765}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B8DFDB2-B680-4647-8C1B-33627B536765}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8C60AC8-7F6A-434F-B403-999266F30FA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8C60AC8-7F6A-434F-B403-999266F30FA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8C60AC8-7F6A-434F-B403-999266F30FA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8C60AC8-7F6A-434F-B403-999266F30FA7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A852C6AD-DD28-4F05-BF57-BB666D73CF94}
+	EndGlobalSection
+EndGlobal
