@@ -2,7 +2,7 @@
 
 namespace CircleTriangleSquare
 {
-    public class Circle: Figure
+    public class Circle: IFigureInfo
     {
         public double _radius { get; set; }
 
@@ -11,10 +11,31 @@ namespace CircleTriangleSquare
             _radius = radius;
         }
 
-        public override double GetArea()
+        public bool CheckIncomeData()
         {
-            return Math.PI * Math.Pow(_radius, 2);
+            return _radius > 0;
+        }
 
+        public double GetArea()
+        {
+            var checkRadius = CheckIncomeData();
+            if (!checkRadius)
+            {
+                throw new ArgumentOutOfRangeException("Радиус не может быть отрицательным");
+            }
+
+            return Math.PI * Math.Pow(_radius, 2);
+        }
+
+        public double GetPerimeter()
+        {
+            var checkRadius = CheckIncomeData();
+            if (!checkRadius)
+            {
+                throw new ArgumentOutOfRangeException("Радиус не может быть отрицательным");
+            }
+
+            return 2 * Math.PI * _radius;
         }
     }
 }

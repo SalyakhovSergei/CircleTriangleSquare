@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 
 namespace CircleTriangleSquare.Tests
 {
@@ -16,6 +17,16 @@ namespace CircleTriangleSquare.Tests
 
             Assert.AreEqual(expected, actual, "Method is incorrect");
             
+        }
+
+        [Test]
+        public void CircleAreaWithBelowZeroParameters()
+        {
+            double r = -3;
+            
+            Circle circle = new Circle(r);
+
+            Assert.Throws<ArgumentOutOfRangeException>(() => circle.GetArea());
         }
     }
 }

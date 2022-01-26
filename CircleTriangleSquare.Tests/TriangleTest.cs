@@ -19,5 +19,17 @@ namespace CircleTriangleSquare.Tests
 
             Assert.AreEqual(expected, actual, "Method is incorrect");
         }
+
+        [Test]
+        public void TriangleAreaWithBelowZeroParameters()
+        {
+            double a = -3;
+            double b = -4;
+            double c = -5;
+
+            Triangle triangle = new Triangle(a, b, c);
+
+            Assert.Throws<ArgumentOutOfRangeException>(() => triangle.GetArea());
+        }
     }
 }

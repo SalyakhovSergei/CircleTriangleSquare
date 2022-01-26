@@ -2,7 +2,7 @@
 
 namespace CircleTriangleSquare
 {
-    public class Triangle: Figure
+    public class Triangle: IFigureInfo
     {
         public double sideA { get; set; }
         public double sideB { get; set; }
@@ -15,38 +15,61 @@ namespace CircleTriangleSquare
             sideC = c;
         }
 
-        public bool isTriangleRight(double a, double b, double c)
+        public bool isTriangleRight()
         {
-            return a == b || b == c || a == c;
+            return sideA == sideB || sideB == sideC || sideA == sideC;
+        }
+        public bool CheckIncomeData()
+        {
+            return sideA > 0 & sideB > 0 & sideC > 0;
         }
 
-        public double getRightTriangleSquare(double a, double b, double c)
+        public double calculateRightTriangleSquare()
         {
-            if (a == b)
+            if (sideA == sideB)
             {
-                return a * c / 2;
+                return sideA * sideB / 2;
             }
-            if (b == c)
+            if (sideB == sideC)
             {
-                return a * b / 2;
+                return sideB * sideC / 2;
             }
 
-            return b * c / 2;
+            return sideA * sideC / 2;
         }
 
-        public override double GetArea()
+        
+
+        public double GetArea()
         {
-            double p = GetPerimeter()/2;
-            if (isTriangleRight(sideA, sideB, sideC))
+            var checkParameters = CheckIncomeData();
+
+            if (!checkParameters)
             {
-                return getRightTriangleSquare(sideA, sideB, sideC);
+                throw new ArgumentOutOfRangeException("Любой из параметров не может быть отрицательным");
             }
-            return Math.Sqrt(p * (p - sideA) * (p - sideB) * (p - sideC));
+
+            double perimeter = GetPerimeter()/2;
+
+            if (isTriangleRight())
+            {
+                return calculateRightTriangleSquare();
+            }
+
+            return Math.Sqrt(perimeter * (perimeter - sideA) * (perimeter - sideB) * (perimeter - sideC));
         }
 
-        public override double GetPerimeter()
+        public double GetPerimeter()
         {
+            var checkParameters = CheckIncomeData();
+
+            if (!checkParameters)
+            {
+                throw new ArgumentOutOfRangeException("Радиус не может быть отрицательным");
+            }
+
             return sideA + sideB + sideC;
         }
+
     }
 }
