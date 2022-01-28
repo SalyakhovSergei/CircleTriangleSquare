@@ -4,9 +4,9 @@ namespace CircleTriangleSquare
 {
     public class Triangle: IFigureInfo
     {
-        public double sideA { get; set; }
-        public double sideB { get; set; }
-        public double sideC { get; set; }
+        public double sideA { get; }
+        public double sideB { get; }
+        public double sideC { get; }
 
         public Triangle(double a, double b, double c)
         {
@@ -17,8 +17,15 @@ namespace CircleTriangleSquare
 
         public bool isTriangleRight()
         {
-            return sideA == sideB || sideB == sideC || sideA == sideC;
+            double sideAPow2 = Math.Pow(sideA, 2);
+            double sideBPow2 = Math.Pow(sideB, 2);
+            double sideCPow2 = Math.Pow(sideC, 2);
+
+            return (sideAPow2 + sideBPow2) == sideCPow2 ||
+                   (sideAPow2 + sideCPow2) == sideBPow2 ||
+                   (sideBPow2 + sideCPow2) == sideAPow2;
         }
+
         public bool CheckIncomeData()
         {
             return sideA > 0 & sideB > 0 & sideC > 0;
