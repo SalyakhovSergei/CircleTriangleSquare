@@ -16,7 +16,7 @@ namespace CircleTriangleSquare
             return _radius > 0;
         }
 
-        public double GetArea()
+        public double CalculateArea()
         {
             var checkRadius = CheckIncomeData();
             if (!checkRadius)
@@ -27,7 +27,7 @@ namespace CircleTriangleSquare
             return Math.PI * Math.Pow(_radius, 2);
         }
 
-        public double GetPerimeter()
+        public double CalculatePerimeter()
         {
             var checkRadius = CheckIncomeData();
             if (!checkRadius)

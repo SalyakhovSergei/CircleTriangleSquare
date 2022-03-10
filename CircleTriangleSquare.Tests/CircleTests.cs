@@ -13,7 +13,7 @@ namespace CircleTriangleSquare.Tests
             double expected = 28.274333882308138;
 
             Circle circle = new Circle(r);
-            double actual = circle.GetArea();
+            double actual = circle.CalculateArea();
 
             Assert.AreEqual(expected, actual, "Method is incorrect");
             
@@ -26,7 +26,7 @@ namespace CircleTriangleSquare.Tests
             
             Circle circle = new Circle(r);
 
-            Assert.Throws<ArgumentOutOfRangeException>(() => circle.GetArea());
+            Assert.Throws<ArgumentOutOfRangeException>(() => circle.CalculateArea());
         }
     }
 }

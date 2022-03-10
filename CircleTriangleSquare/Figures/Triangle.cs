@@ -4,22 +4,38 @@ namespace CircleTriangleSquare
 {
     public class Triangle: IFigureInfo
     {
-        public double sideA { get; }
-        public double sideB { get; }
-        public double sideC { get; }
+        private double _sideA;
+        private double _sideB;
+        private double _sideC;
+        
+        public double SideA 
+        { 
+            get => _sideA;
+            init => _sideA = value;
+        }
+        public double SideB 
+        { 
+            get => _sideB;
+            init => _sideB = value;
+        }
+        public double SideC 
+        { 
+            get => _sideC;
+            init => _sideC = value;
+        }
 
         public Triangle(double a, double b, double c)
         {
-            sideA = a;
-            sideB = b;
-            sideC = c;
+            SideA = a;
+            SideB = b;
+            SideC = c;
         }
 
-        public bool isTriangleRight()
+        private bool isTriangleRight()
         {
-            double sideAPow2 = Math.Pow(sideA, 2);
-            double sideBPow2 = Math.Pow(sideB, 2);
-            double sideCPow2 = Math.Pow(sideC, 2);
+            double sideAPow2 = Math.Pow(_sideA, 2);
+            double sideBPow2 = Math.Pow(_sideB, 2);
+            double sideCPow2 = Math.Pow(_sideC, 2);
 
             return (sideAPow2 + sideBPow2) == sideCPow2 ||
                    (sideAPow2 + sideCPow2) == sideBPow2 ||
@@ -28,54 +44,50 @@ namespace CircleTriangleSquare
 
         public bool CheckIncomeData()
         {
-            return sideA > 0 & sideB > 0 & sideC > 0;
+            return SideA > 0 & SideB > 0 & SideC > 0;
         }
 
-        public double calculateRightTriangleSquare()
+        public double CalculateRightTriangleSquare()
         {
-            if (sideA == sideB)
+            if (SideA == SideB)
             {
-                return sideA * sideB / 2;
+                return SideA * SideB / 2;
             }
-            if (sideB == sideC)
+            if (SideB == SideC)
             {
-                return sideB * sideC / 2;
+                return SideB * SideC / 2;
             }
 
-            return sideA * sideC / 2;
+            return SideA * SideC / 2;
         }
 
-        
-
-        public double GetArea()
+        public double CalculateArea()
         {
-            var checkParameters = CheckIncomeData();
-
-            if (!checkParameters)
+            if (!CheckIncomeData())
             {
                 throw new ArgumentOutOfRangeException("Любой из параметров не может быть отрицательным");
             }
-
-            double perimeter = GetPerimeter()/2;
-
+          
             if (isTriangleRight())
             {
-                return calculateRightTriangleSquare();
+                return CalculateRightTriangleSquare();
             }
+            
+            double perimeter = CalculatePerimeter()/2;
 
-            return Math.Sqrt(perimeter * (perimeter - sideA) * (perimeter - sideB) * (perimeter - sideC));
+            var area = Math.Sqrt(perimeter * (perimeter - SideA) * (perimeter - SideB) * (perimeter - SideC));
+
+            return area;
         }
 
-        public double GetPerimeter()
+        public double CalculatePerimeter()
         {
-            var checkParameters = CheckIncomeData();
-
-            if (!checkParameters)
+            if (!CheckIncomeData())
             {
                 throw new ArgumentOutOfRangeException("Радиус не может быть отрицательным");
             }
 
-            return sideA + sideB + sideC;
+            return SideA + SideB + SideC;
         }
 
     }
