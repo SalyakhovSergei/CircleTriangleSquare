@@ -31,7 +31,7 @@ namespace CircleTriangleSquare
             SideC = c;
         }
 
-        private bool isTriangleRight()
+        private bool IsTriangleRight()
         {
             double sideAPow2 = Math.Pow(_sideA, 2);
             double sideBPow2 = Math.Pow(_sideB, 2);
@@ -49,16 +49,22 @@ namespace CircleTriangleSquare
 
         public double CalculateRightTriangleSquare()
         {
-            if (SideA == SideB)
+            double square = 0;
+            
+            if (SideA == SideB && IsTriangleRight())
             {
-                return SideA * SideB / 2;
+                square = SideA * SideB / 2;
             }
-            if (SideB == SideC)
+            if (SideB == SideC && IsTriangleRight())
             {
-                return SideB * SideC / 2;
+                square = SideB * SideC / 2;
+            }
+            if (SideA == SideC && IsTriangleRight())
+            {
+                square = SideB * SideC / 2;
             }
 
-            return SideA * SideC / 2;
+            return square;
         }
 
         public double CalculateArea()
@@ -68,7 +74,7 @@ namespace CircleTriangleSquare
                 throw new ArgumentOutOfRangeException("Любой из параметров не может быть отрицательным");
             }
           
-            if (isTriangleRight())
+            if (IsTriangleRight())
             {
                 return CalculateRightTriangleSquare();
             }

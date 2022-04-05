@@ -4,7 +4,7 @@ namespace CircleTriangleSquare
 {
     public class Circle: IFigureInfo
     {
-        public double _radius { get; set; }
+        private double _radius { get; }
 
         public Circle(double radius)
         {
